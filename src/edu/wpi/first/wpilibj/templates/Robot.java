@@ -53,13 +53,12 @@ public class Robot extends IterativeRobot {
                 if (rightStick.getX() > 0.4) {
                     PWM3.set(rightStick.getX());
                 }
-            
+            }
             double A12 = (A1.getValue()-475);
             double A13 = (A12/800);
             PWM3.set(PWM3.get()-A13);
             System.out.println(A13 + " " + A1.getValue());
             Timer.delay(0.01);
-        }
       }
     }
     
