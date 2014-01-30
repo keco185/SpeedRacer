@@ -43,19 +43,19 @@ public class Robot extends IterativeRobot {
             chassis.arcadeDrive(leftStick);
             PWM3.set(rightStick.getY());
             PWM4.set(rightStick.getX());
-            if (A1.getValue() > 700) {
+            if (A1.getValue() > 40) {
                 PWM3.set(-0.4);
                 if (rightStick.getX() < -0.4) {
                     PWM3.set(rightStick.getX());
                 }
-            } else if(A1.getValue() < 250){
+            } else if(A1.getValue() < 13.5){
                 PWM3.set(0.4);
                 if (rightStick.getX() > 0.4) {
                     PWM3.set(rightStick.getX());
                 }
             }
-            double A12 = (A1.getValue()-475);
-            double A13 = (A12/800);
+            double A12 = (A1.getValue()-25);
+            double A13 = (A12/30);
             PWM3.set(PWM3.get()-A13);
             System.out.println(A13 + " " + A1.getValue());
             Timer.delay(0.01);
