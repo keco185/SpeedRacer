@@ -22,6 +22,7 @@ public class Robot extends IterativeRobot {
     AnalogChannel A1;
     AnalogChannel ir;
     AnalogChannel ir2;
+    AnalogChannel pot;
     DigitalInput cs;
     boolean attack = true;
     public void robotInit() {
@@ -34,6 +35,7 @@ public class Robot extends IterativeRobot {
         ir = new AnalogChannel(2);
         ir2 = new AnalogChannel(3);
         cs = new DigitalInput(1);
+        pot = new AnalogChannel(4);
     }
 
     public void autonomousPeriodic() {
@@ -71,11 +73,11 @@ public class Robot extends IterativeRobot {
             int leftVal = ir2.getValue();
             int rightVal = ir.getValue();
             
-            
+            System.out.println(pot.getValue());
             //System.out.println("Inches: " + (MathUtils.pow(ir.getValue(), -1.2224)*6627.6));
             double left = (MathUtils.pow(leftVal, -1.22)*6627);
             double right = (MathUtils.pow(rightVal, -1.22)*6627);
-            System.out.println("left: " + left + " right: " + right);
+            //System.out.println("left: " + left + " right: " + right);
             double avg = (left + right) / 2;
             double min = 36;
             //System.out.println("lraw: " + ir2.getValue() + " rraw: " + ir.getValue() + " l: " + left + " r: " + right + " " + cs.get());
